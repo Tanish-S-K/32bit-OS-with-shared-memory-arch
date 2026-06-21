@@ -33,6 +33,33 @@
 
     Demo Video: https://drive.google.com/file/d/1973q_ohmqSTnc7vITdf72fYgvUf7jBHP/view?usp=sharing
 
+## Performance & Validation
+
+```
+    Tested with up to 16 simultaneous QEMU VM instances
+    attached to the same shared NBD-backed disk image.
+
+    Results:
+    --------
+    - 16 concurrent nodes operated successfully
+    - No filesystem corruption observed
+    - No bitmap inconsistencies detected
+    - Atomic write guarantees remained intact across all nodes
+    - Consistent file visibility between nodes after writes
+
+    Boot Performance:
+    -----------------
+    - Average boot time: ~0.3 seconds per VM
+      (BIOS → bootloader → kernel → login prompt)
+
+    Validation Environment:
+    -----------------------
+    - QEMU x86 virtual machines
+    - Shared NBD disk backend
+    - Freestanding 32-bit kernel
+    - ATA PIO storage driver
+```
+
 ## Project Structure
 
 ```
